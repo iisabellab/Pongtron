@@ -13,7 +13,7 @@ public class Paddle1Movement : NetworkBehaviour
 
     private void Update()
     {
-        if (!IsOwner) return; // ✅ Only allow movement for the owner (Host)
+        if (!IsOwner) return; // Only allow movement for the owner (Host)
 
         float moveDirection = 0;
         if (Input.GetKey(KeyCode.W))
@@ -35,6 +35,6 @@ public class Paddle1Movement : NetworkBehaviour
     private void MoveServerRpc(float moveDirection)
     {
         Vector2 newPosition = transform.position + Vector3.up * moveDirection * speed * Time.deltaTime;
-        transform.position = newPosition; // ✅ Move paddle on the server so all clients see the update
+        transform.position = newPosition; // Move paddle on the server so all clients see the update
     }
 }
